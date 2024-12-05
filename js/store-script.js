@@ -65,6 +65,7 @@ function addHtmlToDiv(index) {
     '<button class="store__item-button">Buy</button></article>';
 }
 
+window.addEventListener('load', addHtmlToDiv(0))
 /* '<article class="store__item">' + 
 '<img class="store__item-image" width="262" src="' + itemsArray[0].img + '" alt="' + itemsArray[0].title + '"/>' + 
 '<h3 class="store__item-title"><a href="#" class="store__item-link">' + itemsArray[0].title + '</a></h3>' + 
