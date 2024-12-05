@@ -1,0 +1,144 @@
+/*Default style reset*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+/*Header*/
+
+.header__info-container {
+  background: rgb(214, 3, 7);
+}
+
+.header__info {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 15px 15px;
+  display: flex;
+  justify-content: space-between;
+  font-family: "PT Sans", sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.header__contacts {
+  display: flex;
+  gap: 20px;
+}
+
+.header__contact-link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.header__contact-link:hover {
+  text-decoration: underline;
+}
+
+.header__content-container {
+  background: #222323;
+}
+
+.header__content {
+  width: min(100%, 1200px);
+  margin: 0 auto;
+  padding: 28px 15px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.header__logo {
+  width: 168px;
+}
+
+.header__menu {
+  margin-inline: 0 auto;
+}
+
+.header__menu-list {
+  display: flex;
+  font-family: "PT Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.header__menu-link {
+  position: relative;
+  margin: 20px 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.header__menu-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width 0.4s ease;
+}
+
+.header__menu-link:hover::after {
+  width: 100%;
+}
+
+.header__socials {
+  display: flex;
+  gap: 10px;
+}
+
+.header__social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__social-icon {
+  width: 32px;
+  color: #fff;
+  border: 1px solid #fff;
+  transition: 0.4s ease;
+}
+
+.header__social-icon:hover {
+  background: #fff;
+  color: #222323;
+}
+
+@media (max-width: 1280px) {
+  .header__info {
+    padding: 15px 40px;
+  }
+  .header__content {
+    padding: 28px 40px;
+  }
+}
+
+@media (max-width: 990px) {
+  .tablet-hidden {
+    display: none;
+  }
+}
