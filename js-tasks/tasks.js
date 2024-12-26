@@ -25,12 +25,12 @@ function greet(name, owner) {
 /* https://www.codewars.com/kata/keep-hydrated-1/train/javascript */
 
 function litres(time) {
-  //return Math.floor(time * 0.5 / 1)
-  return (time * 0.5) | 0;
+    //return Math.floor(time * 0.5 / 1)
+    return (time * 0.5) | 0;
 }
 
 /* https://www.codewars.com/kata/555086d53eac039a2a000083/train/javascript */
 
-function lovefunc(flower1, flower2) {
-  return flower1 % 2 !== flower2 % 2;
+function lovefunc(flower1, flower2){
+  return flower1 === flower2 ? false : true
 }
