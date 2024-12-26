@@ -1,28 +1,46 @@
-//Тут буде скрипт для карток продуктів
+async function fetchJSON() {
+  try {
+    const response = await fetch("./json/store-items.json");
+    const data = await response.json();
+    renderStoreContent(data);
+  } catch (error) {
+    console.error("Error fetching JSON:", error);
+  }
+}
 
-console.log("Hello");
+const itemsFilter = document.querySelector("#products-per-page");
+itemsFilter.addEventListener("change", fetchJSON);
 
-// async function fetchJSON() {
-//   try {
-//     const response = await fetch("./json/store-items.json"); // Шлях до JSON
-//     console.log(response);
-//     const data = await response.json(); // Парсинг JSON
-//     console.log(data);
-//     renderData(data);
-//   } catch (error) {
-//     console.error("Error fetching JSON:", error);
-//   }
-// }
+const renderProductCard = (data) => {
+  const cardHTML = `<article class="store__item">
+        <img
+          class="store__item-image"
+          src="${data.imgSrc}"
+          alt="${data.imgAlt}"
+        />
+        <h4 class="store__item-title">
+          <a href="#" class="store__item-link">${data.productTitle}</a>
+        </h4>
+        <p class="store__item-price">$${data.productPrice},00</p>
+        <button class="store__item-button accent-color-button">Buy</button>
+    </article>`;
+  return cardHTML;
+};
 
-// function renderData(data) {
-//   const outputDiv = document.getElementById("output");
-//   outputDiv.innerHTML = `
-//     <p>Name: ${data.name}</p>
-//     <p>Age: ${data.age}</p>
-//     <p>Is Admin: ${data.isAdmin}</p>
-//   `;
-// }
+const renderStoreContent = (data) => {
+  const productsContainer = document.querySelector(".store__content-container");
+  const productsAmount = itemsFilter.value;
+  if (productsAmount <= data.length) {
+    productsContainer.innerHTML = "";
+    for (let i = 0; i < productsAmount; i++) {
+      productsContainer.innerHTML += renderProductCard(data[i]);
+    }
+  } else {
+    productsContainer.innerHTML = "";
+    for (let i = 0; i < data.length; i++) {
+      productsContainer.innerHTML += renderProductCard(data[i]);
+    }
+  }
+};
 
-// fetchJSON();
-
-console.log("World");
+fetchJSON();
